@@ -7,14 +7,13 @@
             <h1><a href="/">Pedro's blog</a></h1>
         </div>
         <div>
-            <p>published: 2020/01/08 20:52</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Este es mi primer post, lo hago para ver qué onda con el Django</p>
-        </div>
-        <div>
-            <p>published: 2020/01/08 20:54</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Este es mi segundo post. En este voy a explorar un poco más qué onda con el Django. Pues quiero aprender a hacer webapps con Python. Por lo visto igual voy a necesitar tener conocimientos de HTML y CSS</p>
+        		{% for post in posts %}
+        	     <div>
+        	        <p>published: {{ post.published_date }}</p>
+            	  <h2><a href=""> {{ post.title }}</a></h2>
+            	  <p>{{ post.text|linebreaksbr }}</p>
+        		  </div>
+            {% endfor %}
         </div>
     </body>
 </html>
